@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Облік прийому медичних препаратів</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.5/dist/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css}" />
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #e3f2fd, #ffffff);
+        }
+        .btn-custom {
+            font-size: 1.2rem;
+            padding: 0.75rem 2rem;
+        }
+        .footer-note {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+<div class="container my-5">
+    <div class="hero p-5 rounded shadow-lg text-center">
+        <h1 class="display-5 fw-bold text-primary mb-3">Курсова робота</h1>
+        <h2 class="h4 mb-4 text-dark">Тема: <em>«Розробка web-застосунку для обліку прийому медичних препаратів»</em></h2>
+
+        <p class="fs-5 mb-3"><strong>Мета:</strong> створити застосунок для ведення обліку призначених медикаментів з інформацією про ліки, дозування та період прийому.</p>
+
+        <p class="fs-5"><strong>Технології:</strong> Java, Spring Boot, Thymeleaf, HTML/CSS, Bootstrap</p>
+
+        <div class="my-4">
+            <a th:href="@{/main-page}" class="btn btn-outline-primary btn-custom">
+                <i class="bi bi-box-arrow-in-right me-2"></i> Розпочати роботу
+            </a>
+        </div>
+
+        <div class="text-muted mt-5 footer-note">
+            <p>Розробив: студент групи <strong>2141</strong></p>
+            <p><strong>Федосюк Олександр</strong></p>
+            <p>2025 рік</p>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/webjars/bootstrap/5.3.5/dist/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+[
+  {
+    "patientId": 1,
+    "patientFullName": "Іваненко Іван Іванович",
+    "dutyDoctor": "Петренко А.А.",
+    "diagnose": "ГРВІ",
+    "medicationName": "Парацетамол",
+    "dosage": 500,
+    "startDate": "2025-05-01",
+    "endDate": "2025-05-07",
+    "instructions": "Приймати по 1 таблетці 3 рази на день після їжі."
+  },
+  {
+    "patientId": 2,
+    "patientFullName": "Коваленко Олена Сергіївна",
+    "dutyDoctor": "Шевченко В.В.",
+    "diagnose": "Гіпертонія",
+    "medicationName": "Еналаприл",
+    "dosage": 10,
+    "startDate": "2025-04-15",
+    "endDate": "2025-10-15",
+    "instructions": "Приймати вранці щодня по 1 таблетці."
+  },
+  {
+    "patientId": 3,
+    "patientFullName": "Сидорчук Павло Ігорович",
+    "dutyDoctor": "Бондар М.М.",
+    "diagnose": "Цукровий діабет",
+    "medicationName": "Метформін",
+    "dosage": 850,
+    "startDate": "2025-03-10",
+    "endDate": "2025-09-10",
+    "instructions": "По 1 таблетці двічі на день після їжі."
+  },
+  {
+    "patientId": 4,
+    "patientFullName": "Захарова Наталія Миколаївна",
+    "dutyDoctor": "Кравченко І.І.",
+    "diagnose": "Астма",
+    "medicationName": "Сальбутамол",
+    "dosage": 100,
+    "startDate": "2025-01-01",
+    "endDate": "2025-12-31",
+    "instructions": "Інгаляція при потребі, не більше 4 разів на добу."
+  },
+  {
+    "patientId": 5,
+    "patientFullName": "Мельник Артем Валерійович",
+    "dutyDoctor": "Гриценко Л.Л.",
+    "diagnose": "Алергія",
+    "medicationName": "Лоратадин",
+    "dosage": 10,
+    "startDate": "2025-05-10",
+    "endDate": "2025-05-20",
+    "instructions": "1 таблетка на добу перед сном."
+  },
+  {
+    "patientId": 6,
+    "patientFullName": "Антонюк Світлана Петрівна",
+    "dutyDoctor": "Данилюк І.О.",
+    "diagnose": "Мігрень",
+    "medicationName": "Ібупрофен",
+    "dosage": 400,
+    "startDate": "2025-05-12",
+    "endDate": "2025-05-18",
+    "instructions": "1 таблетка при появі болю, не частіше 3 разів на добу."
+  },
+  {
+    "patientId": 7,
+    "patientFullName": "Ткаченко Владислав Олегович",
+    "dutyDoctor": "Семенюк Л.М.",
+    "diagnose": "Гастрит",
+    "medicationName": "Омепразол",
+    "dosage": 20,
+    "startDate": "2025-04-20",
+    "endDate": "2025-05-20",
+    "instructions": "1 капсула вранці за 30 хв до їжі."
+  },
+  {
+    "patientId": 8,
+    "patientFullName": "Білик Андрій Степанович",
+    "dutyDoctor": "Литвиненко О.О.",
+    "diagnose": "Бронхіт",
+    "medicationName": "Амоксицилін",
+    "dosage": 500,
+    "startDate": "2025-05-05",
+    "endDate": "2025-05-12",
+    "instructions": "По 1 таблетці кожні 8 годин."
+  },
+  {
+    "patientId": 9,
+    "patientFullName": "Романюк Марина Анатоліївна",
+    "dutyDoctor": "Черненко Т.Т.",
+    "diagnose": "Пієлонефрит",
+    "medicationName": "Ципрофлоксацин",
+    "dosage": 250,
+    "startDate": "2025-05-03",
+    "endDate": "2025-05-13",
+    "instructions": "По 1 таблетці 2 рази на день."
+  },
+  {
+    "patientId": 10,
+    "patientFullName": "Гуменюк Оксана Василівна",
+    "dutyDoctor": "Сидоренко Ю.Ю.",
+    "diagnose": "Артрит",
+    "medicationName": "Диклофенак",
+    "dosage": 50,
+    "startDate": "2025-04-01",
+    "endDate": "2025-05-01",
+    "instructions": "По 1 таблетці 2 рази на день після їжі."
+  },
+  {
+    "patientId": 11,
+    "patientFullName": "Олійник Назар Дмитрович",
+    "dutyDoctor": "Ковальчук А.А.",
+    "diagnose": "Гельмінтоз",
+    "medicationName": "Альбендазол",
+    "dosage": 400,
+    "startDate": "2025-05-14",
+    "endDate": "2025-05-16",
+    "instructions": "1 таблетка одноразово, повтор через 2 тижні."
+  },
+  {
+    "patientId": 12,
+    "patientFullName": "Демченко Ірина Віталіївна",
+    "dutyDoctor": "Ніколаєнко Є.Є.",
+    "diagnose": "Цистит",
+    "medicationName": "Нітрофурантоїн",
+    "dosage": 100,
+    "startDate": "2025-05-08",
+    "endDate": "2025-05-15",
+    "instructions": "По 1 таблетці 3 рази на день."
+  },
+  {
+    "patientId": 13,
+    "patientFullName": "Кушнір Богдан Олексійович",
+    "dutyDoctor": "Гаврилюк Р.Р.",
+    "diagnose": "Псоріаз",
+    "medicationName": "Метотрексат",
+    "dosage": 7.5,
+    "startDate": "2025-03-01",
+    "endDate": "2025-06-01",
+    "instructions": "1 раз на тиждень, під наглядом лікаря."
+  },
+  {
+    "patientId": 14,
+    "patientFullName": "Зозуля Тетяна Ігорівна",
+    "dutyDoctor": "Савчук В.В.",
+    "diagnose": "Анемія",
+    "medicationName": "Феррум Лек",
+    "dosage": 100,
+    "startDate": "2025-04-15",
+    "endDate": "2025-06-15",
+    "instructions": "1 таблетка 1 раз на день після їжі."
+  },
+  {
+    "patientId": 15,
+    "patientFullName": "Мороз Віктор Володимирович",
+    "dutyDoctor": "Опанасенко С.С.",
+    "diagnose": "Подагра",
+    "medicationName": "Алопуринол",
+    "dosage": 300,
+    "startDate": "2025-02-10",
+    "endDate": "2025-08-10",
+    "instructions": "1 таблетка на добу після їжі."
+  },
+  {
+    "patientId": 16,
+    "patientFullName": "Кирилюк Євгенія Анатоліївна",
+    "dutyDoctor": "Мірошниченко І.О.",
+    "diagnose": "Отит",
+    "medicationName": "Цефіксим",
+    "dosage": 200,
+    "startDate": "2025-05-10",
+    "endDate": "2025-05-17",
+    "instructions": "1 таблетка 2 рази на день."
+  },
+  {
+    "patientId": 17,
+    "patientFullName": "Назаренко Дмитро Артемович",
+    "dutyDoctor": "Ярова К.К.",
+    "diagnose": "Гепатит A",
+    "medicationName": "Ессенціале Форте",
+    "dosage": 300,
+    "startDate": "2025-05-01",
+    "endDate": "2025-07-01",
+    "instructions": "По 2 капсули 3 рази на день під час їжі."
+  },
+  {
+    "patientId": 18,
+    "patientFullName": "Щербак Анна Сергіївна",
+    "dutyDoctor": "Терещенко В.І.",
+    "diagnose": "Герпес",
+    "medicationName": "Ацикловір",
+    "dosage": 400,
+    "startDate": "2025-05-13",
+    "endDate": "2025-05-18",
+    "instructions": "1 таблетка 5 разів на добу."
+  },
+  {
+    "patientId": 19,
+    "patientFullName": "Пилипенко Микита Євгенович",
+    "dutyDoctor": "Волкова І.П.",
+    "diagnose": "Остеохондроз",
+    "medicationName": "Мелоксикам",
+    "dosage": 15,
+    "startDate": "2025-04-10",
+    "endDate": "2025-05-10",
+    "instructions": "1 таблетка 1 раз на день під час їжі."
+  },
+  {
+    "patientId": 20,
+    "patientFullName": "Левчук Ілона Романівна",
+    "dutyDoctor": "Козак Ю.Ю.",
+    "diagnose": "Панкреатит",
+    "medicationName": "Креон",
+    "dosage": 25000,
+    "startDate": "2025-05-01",
+    "endDate": "2025-06-01",
+    "instructions": "По 1 капсулі під час кожного прийому їжі."
+  }
+]

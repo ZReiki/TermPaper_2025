@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Облік пацієнтів</title>
+    <style>
+        .table-responsive {
+            max-height: 750px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.5/dist/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css}" />
+</head>
+<body class="bg-light">
+
+<div class="container-fluid">
+    <div class="row min-vh-100">
+
+        <!-- Sidebar -->
+        <div class="col-md-3 bg-dark text-white p-4">
+            <h3 class="mb-4">Фільтри</h3>
+            <form method="get" th:action="@{/filter}">
+                <div class="mb-3">
+                    <label for="diagnose" class="form-label">Діагноз:</label>
+                    <input type="text" class="form-control" name="diagnose" id="diagnose"
+                           th:attr="disabled=${#lists.isEmpty(patients)}" />
+                </div>
+                <div class="mb-3">
+                    <label for="medication" class="form-label">Назва ліків:</label>
+                    <input type="text" class="form-control" name="medication" id="medication"
+                           th:attr="disabled=${#lists.isEmpty(patients)}" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Період прийому:</label>
+                    <div class="d-flex gap-2">
+                        <label for="start" class="form-label">Початок:</label>
+                        <input type="date" class="form-control form-control-sm" name="start" id="start" placeholder="Початок"
+                               th:attr="disabled=${#lists.isEmpty(patients)}" />
+                        <label for="end" class="form-label">Кінець:</label>
+                        <input type="date" class="form-control form-control-sm" name="end" id="end" placeholder="Кінець"
+                               th:attr="disabled=${#lists.isEmpty(patients)}" />
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100"
+                        th:attr="disabled=${#lists.isEmpty(patients)}">
+                    <i class="bi bi-funnel-fill"></i> Застосувати
+                </button>
+            </form>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9 p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <form method="get" th:action="@{/search}" class="d-flex w-75 gap-2">
+                    <div>
+                        <label for="searchId" class="visually-hidden">ID пацієнта</label>
+                        <input type="text" id="searchId" class="form-control flex-grow-0" style="width: 150px;" name="id"
+                               placeholder="Пошук за ID"
+                               th:attr="disabled=${#lists.isEmpty(patients)}" />
+                    </div>
+                    <div class="flex-grow-1">
+                        <label for="searchName" class="visually-hidden">Ім’я пацієнта</label>
+                        <input type="text" id="searchName" class="form-control" name="name" placeholder="Пошук за ім’ям пацієнта"
+                               th:attr="disabled=${#lists.isEmpty(patients)}" />
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary" title="Знайти"
+                            th:attr="disabled=${#lists.isEmpty(patients)}">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <a th:href="@{/main-page}" class="btn btn-outline-secondary ms-2" title="Показати всіх пацієнтів"
+                       th:attr="aria-disabled=${#lists.isEmpty(patients)}"
+                       th:classappend="${#lists.isEmpty(patients)} ? ' disabled' : ''">
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </a>
+                </form>
+                <div class="d-flex gap-2">
+                    <a th:href="@{/}" class="btn btn-outline-secondary"
+                       th:attr="aria-disabled=${#lists.isEmpty(patients)}"
+                       th:classappend="${#lists.isEmpty(patients)} ? ' disabled' : ''">
+                        <i class="bi bi-arrow-left-circle"></i> На головну
+                    </a>
+                    <a th:href="@{/main-page/add-patient}" class="btn btn-success"
+                       th:attr="aria-disabled=${#lists.isEmpty(patients)}"
+                       th:classappend="${#lists.isEmpty(patients)} ? ' disabled' : ''">
+                        <i class="bi bi-plus-lg"></i> Додати пацієнта
+                    </a>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped bg-white">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>ПІБ</th>
+                        <th>Лікар</th>
+                        <th>Діагноз</th>
+                        <th>Деталі</th>
+                        <th>Видалити</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="patient : ${patients}">
+                        <td th:text="${patient.patientId}"></td>
+                        <td th:text="${patient.patientFullName}"></td>
+                        <td th:text="${patient.dutyDoctor}"></td>
+                        <td th:text="${patient.diagnose}"></td>
+                        <td>
+                            <a th:href="@{'/details/' + ${patient.patientId}}" class="btn btn-outline-info btn-sm">
+                                <i class="bi bi-info-circle"></i> Деталі
+                            </a>
+                        </td>
+                        <td>
+                            <form th:action="@{/main-page/delete-patient/{id}(id=${patient.patientId})}" method="post" style="display: inline;">
+                                <button type="submit" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Ви впевнені, що хочете видалити цього пацієнта?')">
+                                    <i class="bi bi-trash"></i> Видалити
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Buttons for load/save -->
+            <div class="d-flex justify-content-between mt-4">
+                <a th:href="@{/load-from-json-file}" class="btn btn-outline-secondary">
+                    <i class="bi bi-download"></i> Завантажити з файлу
+                </a>
+                <a th:href="@{/save-to-json-file}" th:attr="aria-disabled=${#lists.isEmpty(patients)}"
+                   th:classappend="${#lists.isEmpty(patients)} ? ' disabled' : ''" class="btn btn-outline-secondary">
+                    <i class="bi bi-upload"></i> Зберегти у файл
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script th:src="@{/webjars/bootstrap/5.3.5/dist/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

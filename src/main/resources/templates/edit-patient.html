@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редагування пацієнта</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.5/dist/css/bootstrap.min.css}">
+</head>
+<body class="bg-light py-5">
+<div class="container">
+    <div class="card shadow-lg mx-auto" style="max-width: 600px;">
+        <div class="card-body">
+            <h2 class="card-title text-center text-warning mb-4">Редагувати пацієнта</h2>
+
+            <form th:action="@{/main-page/edit-patient}" th:object="${patient}" method="post">
+                <!-- ID (не редагується) -->
+                <div class="mb-3">
+                    <label for="patientId" class="form-label"><strong>ID:</strong></label>
+                    <input type="text" id="patientId" class="form-control" th:value="${patient.patientId}" readonly>
+                    <input type="hidden" th:field="*{patientId}" />
+                </div>
+
+                <!-- Ім’я пацієнта -->
+                <div class="mb-3">
+                    <label for="patientFullName" class="form-label">Ім’я пацієнта</label>
+                    <input type="text" id="patientFullName" class="form-control" th:field="*{patientFullName}" required>
+                </div>
+
+                <!-- Ім’я лікаря -->
+                <div class="mb-3">
+                    <label for="dutyDoctor" class="form-label">Ім’я лікаря</label>
+                    <input type="text" id="dutyDoctor" class="form-control" th:field="*{dutyDoctor}" required>
+                </div>
+
+                <!-- Діагноз -->
+                <div class="mb-3">
+                    <label for="diagnose" class="form-label">Діагноз</label>
+                    <input type="text" id="diagnose" class="form-control" th:field="*{diagnose}" required>
+                </div>
+
+                <!-- Ліки -->
+                <div class="mb-3">
+                    <label for="medicationName" class="form-label">Назва ліків</label>
+                    <input type="text" id="medicationName" class="form-control" th:field="*{medicationName}">
+                </div>
+
+                <!-- Доза -->
+                <div class="mb-3">
+                    <label for="dosage" class="form-label">Доза</label>
+                    <input type="text" id="dosage" class="form-control" th:field="*{dosage}">
+                </div>
+
+                <!-- Період прийому -->
+                <div class="mb-3">
+                    <label for="startDate" class="form-label">Початок прийому</label>
+                    <input type="date" id="startDate" class="form-control"
+                           name="startDate" th:value="${patient.startDate}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="endDate" class="form-label">Кінець прийому</label>
+                    <input type="date" id="endDate" class="form-control"
+                           name="endDate" th:value="${patient.endDate}">
+                </div>
+
+                <!-- Кнопки -->
+                <div class="d-flex justify-content-between">
+                    <a th:href="@{/details/{id}(id=${patient.patientId})}" class="btn btn-outline-secondary">← Назад</a>
+                    <button type="submit" class="btn btn-success">💾 Зберегти</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/webjars/bootstrap/5.3.5/dist/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

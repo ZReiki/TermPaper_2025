@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Інформація про пацієнта</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.5/dist/css/bootstrap.min.css}">
+</head>
+<body class="bg-light py-5">
+
+<div class="container">
+    <div class="card shadow-lg mx-auto" style="max-width: 600px;">
+        <div class="card-body">
+            <h2 class="card-title text-center text-primary mb-4" th:text="'Пацієнт: ' + ${patient.patientFullName}"></h2>
+
+            <ul class="list-group list-group-flush fs-5">
+                <li class="list-group-item"><strong>ID:</strong> <span th:text="${patient.patientId}"></span></li>
+                <li class="list-group-item"><strong>Лікар:</strong> <span th:text="${patient.dutyDoctor}"></span></li>
+                <li class="list-group-item"><strong>Діагноз:</strong> <span th:text="${patient.diagnose}"></span></li>
+                <li class="list-group-item"><strong>Ліки:</strong> <span th:text="${patient.medicationName}"></span></li>
+                <li class="list-group-item"><strong>Доза:</strong> <span th:text="${patient.dosage}"></span></li>
+                <li class="list-group-item">
+                    <strong>Період прийому:</strong>
+                    <span th:text="${#temporals.format(patient.startDate, 'dd.MM.yyyy')}"></span> —
+                    <span th:text="${#temporals.format(patient.endDate, 'dd.MM.yyyy')}"></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <div class="me-2">
+                        <strong>Інструкції:</strong>
+                        <span th:text="${patient.instructions}"></span>
+                    </div>
+                    <a th:href="@{'/edit-instruction/' + ${patient.patientId}}" class="btn btn-sm btn-outline-secondary">
+                        ✏️
+                    </a>
+                </li>
+            </ul>
+
+            <div class="text-center mt-4 d-flex justify-content-between">
+                <a th:href="@{/main-page}" class="btn btn-outline-primary">
+                    ← Повернутися до списку
+                </a>
+
+                <a th:href="@{/main-page/edit-patient/{id}(id=${patient.patientId})}" class="btn btn-warning">
+                    ✏️ Редагувати інформацію
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script th:src="@{/webjars/bootstrap/5.3.5/dist/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
