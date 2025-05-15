@@ -31,8 +31,24 @@ public class PatientService {
         patients.add(patient);
     }
 
-    public void updatePatient(Patient patient) {
-        patients.replaceAll(p -> p.getPatientId().equals(patient.getPatientId()) ? patient : p);
+    public void updatePatient(Patient updatedPatient) {
+        patients.replaceAll(p -> {
+            if (p.getPatientId().equals(updatedPatient.getPatientId())) {
+                p.setPatientFullName(updatedPatient.getPatientFullName());
+                p.setDutyDoctor(updatedPatient.getDutyDoctor());
+                p.setDiagnose(updatedPatient.getDiagnose());
+                p.setMedicationName(updatedPatient.getMedicationName());
+                p.setDosage(updatedPatient.getDosage());
+                if (updatedPatient.getStartDate() == null) {
+                    updatedPatient.setStartDate(p.getStartDate());
+                }
+                if (updatedPatient.getEndDate() == null) {
+                    updatedPatient.setEndDate(p.getEndDate());
+                }
+                return p;
+            }
+            return p;
+        });
     }
 
     public void updateInstructions(Integer id, String instructions) {

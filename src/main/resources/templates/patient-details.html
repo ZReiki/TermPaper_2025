@@ -3,52 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Інформація про пацієнта</title>
-    <!-- Bootstrap -->
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.5/dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css}">
+    <link rel="stylesheet" th:href="@{/pages-style.css}" />
 </head>
-<body class="bg-light py-5">
-
+<body class="bg-light py-4">
 <div class="container">
-    <div class="card shadow-lg mx-auto" style="max-width: 600px;">
-        <div class="card-body">
-            <h2 class="card-title text-center text-primary mb-4" th:text="'Пацієнт: ' + ${patient.patientFullName}"></h2>
+    <div class="card patient-card shadow-sm mx-auto" style="max-width: 650px;">
+        <div class="card-body p-0">
+            <h2 class="card-title text-center text-primary p-4 mb-0 border-bottom"
+                th:text="'Пацієнт: ' + ${patient.patientFullName}"></h2>
 
-            <ul class="list-group list-group-flush fs-5">
-                <li class="list-group-item"><strong>ID:</strong> <span th:text="${patient.patientId}"></span></li>
-                <li class="list-group-item"><strong>Лікар:</strong> <span th:text="${patient.dutyDoctor}"></span></li>
-                <li class="list-group-item"><strong>Діагноз:</strong> <span th:text="${patient.diagnose}"></span></li>
-                <li class="list-group-item"><strong>Ліки:</strong> <span th:text="${patient.medicationName}"></span></li>
-                <li class="list-group-item"><strong>Доза:</strong> <span th:text="${patient.dosage}"></span></li>
-                <li class="list-group-item">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item info-item">
+                    <strong>ID:</strong> <span th:text="${patient.patientId}"></span>
+                </li>
+                <li class="list-group-item info-item">
+                    <strong>Лікар:</strong> <span th:text="${patient.dutyDoctor}"></span>
+                </li>
+                <li class="list-group-item info-item">
+                    <strong>Діагноз:</strong> <span th:text="${patient.diagnose}"></span>
+                </li>
+                <li class="list-group-item info-item">
+                    <strong>Ліки:</strong> <span th:text="${patient.medicationName}"></span>
+                </li>
+                <li class="list-group-item info-item">
+                    <strong>Доза:</strong> <span th:text="${patient.dosage}"></span>
+                </li>
+                <li class="list-group-item info-item">
                     <strong>Період прийому:</strong>
                     <span th:text="${#temporals.format(patient.startDate, 'dd.MM.yyyy')}"></span> —
                     <span th:text="${#temporals.format(patient.endDate, 'dd.MM.yyyy')}"></span>
                 </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div class="me-2">
+                <li class="list-group-item info-item d-flex justify-content-between align-items-center">
+                    <div>
                         <strong>Інструкції:</strong>
-                        <span th:text="${patient.instructions}"></span>
+                        <span th:text="${patient.instructions ?: 'Не вказано'}"></span>
                     </div>
-                    <a th:href="@{'/edit-instruction/' + ${patient.patientId}}" class="btn btn-sm btn-outline-secondary">
-                        ✏️
+                    <a th:href="@{'/edit-instruction/' + ${patient.patientId}}"
+                       class="btn btn-sm btn-outline-secondary edit-btn" title="Редагувати">
+                        <i class="bi bi-pencil"></i>
                     </a>
                 </li>
             </ul>
 
-            <div class="text-center mt-4 d-flex justify-content-between">
-                <a th:href="@{/main-page}" class="btn btn-outline-primary">
-                    ← Повернутися до списку
+            <div class="p-4 d-flex justify-content-between bg-light rounded-bottom">
+                <a th:href="@{/main-page}" class="btn btn-outline-primary px-4">
+                    <i class="bi bi-arrow-left me-2"></i>До списку
                 </a>
-
-                <a th:href="@{/main-page/edit-patient/{id}(id=${patient.patientId})}" class="btn btn-warning">
-                    ✏️ Редагувати інформацію
+                <a th:href="@{/main-page/edit-patient/{id}(id=${patient.patientId})}"
+                   class="btn btn-warning px-4">
+                    <i class="bi bi-pencil-square me-2"></i>Редагувати
                 </a>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Bootstrap JS -->
 <script th:src="@{/webjars/bootstrap/5.3.5/dist/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

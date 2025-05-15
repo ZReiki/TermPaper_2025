@@ -1,0 +1,136 @@
+/*start-page.html*/
+body {
+    background-color: #f8f9fa;
+}
+.welcome-card {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    background: white;
+}
+.btn-start {
+    padding: 0.75rem 2rem;
+    border-width: 2px;
+}
+.divider {
+    height: 2px;
+    background: linear-gradient(to right, transparent, #0d6efd, transparent);
+}
+
+/*main-page.html*/
+.table-responsive {
+    max-height: 750px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+.sidebar .form-label {
+    color: white !important;
+}
+
+.sidebar .form-control {
+    background-color: #3a4b5c !important;
+    color: white !important;
+    border-color: #495057 !important;
+}
+
+.sidebar .form-control::placeholder {
+    color: #adb5bd !important;
+}
+
+.sidebar .form-control:disabled {
+    background-color: #2a3b4c !important;
+}
+
+/*patient-details.html*/
+.patient-card {
+    border: none;
+    border-top: 4px solid #0d6efd;
+}
+.info-item {
+    padding: 1rem 1.25rem;
+    border-left: none;
+    border-right: none;
+}
+.info-item:nth-child(odd) {
+    background-color: rgba(13, 110, 253, 0.03);
+}
+.edit-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*add-patient.html*/
+.form-card {
+    border-top: 4px solid #28a745;
+    border-radius: 0.5rem;
+}
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+.required-field::after {
+    content: " *";
+    color: #dc3545;
+}
+.btn-save {
+    transition: all 0.2s;
+}
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.25);
+}
+
+/*edit-instruction.html*/
+.instruction-card {
+    border-top: 4px solid #17a2b8;
+    border-radius: 0.5rem;
+}
+.instruction-textarea {
+    min-height: 200px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+.btn-save {
+    transition: all 0.2s;
+}
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(23, 162, 184, 0.25);
+}
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+/*edit-patient.html*/
+.edit-card {
+    border-top: 4px solid #ffc107;
+    border-radius: 0.5rem;
+}
+.section-title {
+    color: #6c757d;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.form-label {
+    font-weight: 500;
+}
+.required-field::after {
+    content: " *";
+    color: #dc3545;
+}
+.btn-save {
+    transition: all 0.2s;
+}
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.25);
+}
+.readonly-field {
+    background-color: #f8f9fa;
+}

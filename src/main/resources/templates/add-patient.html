@@ -4,53 +4,80 @@
     <meta charset="UTF-8">
     <title>Додати пацієнта</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.5/dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css}">
+    <link rel="stylesheet" th:href="@{/pages-style.css}" />
 </head>
-<body class="bg-light py-5">
-
+<body class="bg-light py-4">
 <div class="container">
-    <div class="card shadow-lg mx-auto" style="max-width: 700px;">
-        <div class="card-body">
-            <h2 class="card-title text-center text-success mb-4">Додати нового пацієнта</h2>
+    <div class="card form-card shadow mx-auto" style="max-width: 700px;">
+        <div class="card-header bg-white border-0 pt-4">
+            <h2 class="card-title text-center text-success mb-0">
+                <i class="bi bi-person-plus me-2"></i>Додати нового пацієнта
+            </h2>
+        </div>
 
+        <div class="card-body pt-1">
             <form th:action="@{/main-page/add-patient}" method="post" th:object="${patient}">
-                <div class="mb-3">
-                    <label for="fullName" class="form-label">ПІБ пацієнта</label>
-                    <input type="text" th:field="*{patientFullName}" class="form-control" id="fullName" required>
+                <!-- Персональна інформація -->
+                <div class="mb-4">
+                    <h5 class="text-muted mb-3"><i class="bi bi-person-lines-fill me-2"></i>Персональні дані</h5>
+
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label required-field">ПІБ пацієнта</label>
+                        <input type="text" th:field="*{patientFullName}" class="form-control form-control-lg" id="fullName" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="doctor" class="form-label required-field">Лікар, що відповідає</label>
+                        <input type="text" th:field="*{dutyDoctor}" class="form-control form-control-lg" id="doctor" required>
+                    </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="doctor" class="form-label">Ім’я лікаря</label>
-                    <input type="text" th:field="*{dutyDoctor}" class="form-control" id="doctor" required>
+                <!-- Медична інформація -->
+                <div class="mb-4">
+                    <h5 class="text-muted mb-3"><i class="bi bi-clipboard2-pulse me-2"></i>Медичні дані</h5>
+
+                    <div class="mb-3">
+                        <label for="diagnose" class="form-label">Діагноз</label>
+                        <input type="text" th:field="*{diagnose}" class="form-control" id="diagnose">
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="medication" class="form-label">Назва ліків</label>
+                            <input type="text" th:field="*{medicationName}" class="form-control" id="medication">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="dosage" class="form-label">Дозування</label>
+                            <input type="text" th:field="*{dosage}" class="form-control" id="dosage">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="diagnose" class="form-label">Діагноз</label>
-                    <input type="text" th:field="*{diagnose}" class="form-control" id="diagnose">
+                <!-- Дати лікування -->
+                <div class="mb-4">
+                    <h5 class="text-muted mb-3"><i class="bi bi-calendar-range me-2"></i>Період лікування</h5>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="startDate" class="form-label">Дата початку</label>
+                            <input type="date" th:field="*{startDate}" class="form-control" id="startDate">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="endDate" class="form-label">Дата завершення</label>
+                            <input type="date" th:field="*{endDate}" class="form-control" id="endDate">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="medication" class="form-label">Назва ліків</label>
-                    <input type="text" th:field="*{medicationName}" class="form-control" id="medication">
-                </div>
-
-                <div class="mb-3">
-                    <label for="dosage" class="form-label">Дозування</label>
-                    <input type="text" th:field="*{dosage}" class="form-control" id="dosage">
-                </div>
-
-                <div class="mb-3">
-                    <label for="startDate" class="form-label">Дата початку лікування</label>
-                    <input type="date" th:field="*{startDate}" class="form-control" id="startDate">
-                </div>
-
-                <div class="mb-3">
-                    <label for="endDate" class="form-label">Дата завершення лікування</label>
-                    <input type="date" th:field="*{endDate}" class="form-control" id="endDate">
-                </div>
-
-                <div class="d-flex justify-content-between">
-                    <a th:href="@{/main-page}" class="btn btn-outline-secondary">← Назад</a>
-                    <button type="submit" class="btn btn-success">💾 Зберегти пацієнта</button>
+                <!-- Кнопки дій -->
+                <div class="d-flex justify-content-between mt-4 pt-2">
+                    <a th:href="@{/main-page}" class="btn btn-outline-secondary px-4">
+                        <i class="bi bi-arrow-left me-2"></i>Назад
+                    </a>
+                    <button type="submit" class="btn btn-success btn-save px-4">
+                        <i class="bi bi-save me-2"></i>Зберегти
+                    </button>
                 </div>
             </form>
         </div>

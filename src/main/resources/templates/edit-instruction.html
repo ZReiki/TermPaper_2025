@@ -4,23 +4,38 @@
     <meta charset="UTF-8">
     <title>Редагування інструкцій</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.5/dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css}">
+    <link rel="stylesheet" th:href="@{/pages-style.css}" />
 </head>
-<body class="bg-light py-5">
-
+<body class="bg-light py-4">
 <div class="container">
-    <div class="card shadow-lg mx-auto" style="max-width: 700px;">
-        <div class="card-body">
-            <h2 class="card-title text-center text-info mb-4">Редагування інструкцій</h2>
+    <div class="card instruction-card shadow mx-auto" style="max-width: 700px;">
+        <div class="card-header bg-white border-0 pt-4">
+            <h2 class="card-title text-center text-info mb-0">
+                <i class="bi bi-journal-text me-2"></i>Редагування інструкцій
+            </h2>
+            <p class="text-center text-muted mt-2 mb-0" th:text="'Пацієнт: ' + ${patient.patientFullName}"></p>
+        </div>
 
+        <div class="card-body pt-1">
             <form th:action="@{'/edit-instruction/' + ${patient.patientId}}" method="post" th:object="${patient}">
-                <div class="mb-3">
-                    <label for="instructions" class="form-label">Інструкції для пацієнта</label>
-                    <textarea th:field="*{instructions}" id="instructions" rows="6" class="form-control" required></textarea>
+                <div class="mb-4">
+                    <label for="instructions" class="form-label">Детальні інструкції для пацієнта</label>
+                    <textarea th:field="*{instructions}"
+                              id="instructions"
+                              class="form-control instruction-textarea"
+                              placeholder="Введіть детальні інструкції щодо прийому ліків, дозування та інші рекомендації..."
+                              required></textarea>
+                    <div class="form-text mt-2">Будь ласка, вкажіть чіткі інструкції для пацієнта</div>
                 </div>
 
-                <div class="d-flex justify-content-between">
-                    <a th:href="@{'/details/' + ${patient.patientId}}" class="btn btn-outline-secondary">← Назад</a>
-                    <button type="submit" class="btn btn-primary">💾 Зберегти зміни</button>
+                <div class="d-flex justify-content-between mt-4 pt-2">
+                    <a th:href="@{'/details/' + ${patient.patientId}}" class="btn btn-outline-secondary px-4">
+                        <i class="bi bi-arrow-left me-2"></i>Назад
+                    </a>
+                    <button type="submit" class="btn btn-info text-white btn-save px-4">
+                        <i class="bi bi-save me-2"></i>Зберегти зміни
+                    </button>
                 </div>
             </form>
         </div>
