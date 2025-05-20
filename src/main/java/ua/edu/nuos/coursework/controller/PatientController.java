@@ -1,6 +1,5 @@
 package ua.edu.nuos.coursework.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,12 +13,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class PatientController {
-    private final PatientService patientService;
-
-    @Autowired
-    public PatientController(PatientService patientService) {
-        this.patientService = patientService;
-    }
+    private final PatientService patientService = new PatientService();
 
     @GetMapping("")
     public String startPage() {
