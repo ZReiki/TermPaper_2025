@@ -16,7 +16,7 @@ public class PatientController {
     private final PatientService patientService = new PatientService();
 
     @GetMapping("")
-    public String startPage() {
+    public String showStartPage() {
         return "start-page";
     }
 
